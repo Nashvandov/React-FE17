@@ -38,7 +38,13 @@ class App extends Component {
       }
     ]
   }
-
+  addItem = (itemInfo) => {
+    this.setState(() => {
+      return {
+        employees: [ ...this.state.employees, itemInfo ]
+      }
+    })
+  }
   deleteItem = (idEl) => {
     this.setState(({ employees }) => {
       // eslint-disable-next-line
@@ -66,7 +72,7 @@ class App extends Component {
           </div>
           
           <EmployeesList onDeleteOne={this.deleteItem} employeers={this.state.employees}/>
-          <EmployeesAddForm/>
+          <EmployeesAddForm addEmployee={this.addItem}/>
       </div>
     );
   }

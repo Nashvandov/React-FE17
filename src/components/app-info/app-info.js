@@ -13,4 +13,5 @@ class AppInfo extends Component {
 	}
 }
 
-export default AppInfo;
+// export default AppInfo;
+export { AppInfo }

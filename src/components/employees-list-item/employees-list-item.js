@@ -11,22 +11,24 @@ class EmployeesListItem extends Component {
 			return { rise : !rise } 
 		} )
 	}
-	// onIncrease = () => {
-	// 	this.setState(() => {
-	// 		return { 
-	// 			increase: !this.state.increase 
-	// 		}
-	// 	})
-	// }
 
 	onIncrease = () => {
-		this.setState(({increase}) => ({increase: !increase}))
+		this.setState(() => {
+			return {
+				increase: !this.props.increase
+			}
+		})
+		this.props.onToggleIncrease(!this.state.increase)
 		console.log('click')
+	}
+	
+	componentDidMount(){
+		this.setState({increase: this.props.increase})
+		this.setState({rise: this.props.rise})
 	}
 
 	render(){
-		let { name , salary, onDeleteTwo } = this.props;
-		let { rise, increase } = this.state
+		let { name , salary, onDeleteTwo, increase, rise } = this.props;
 		let clazz = "list-group-item d-flex justify-content-between"
 
 		if(rise){
@@ -61,4 +63,4 @@ class EmployeesListItem extends Component {
 	}
 }
 
-export default EmployeesListItem;
+export { EmployeesListItem };

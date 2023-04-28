@@ -19,4 +19,4 @@ const AppFilter = () => {
     )
 }
 
-export default AppFilter;
+export { AppFilter };

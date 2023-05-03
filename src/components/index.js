@@ -4,3 +4,4 @@ export { EmployeesAddForm } from './employees-add-form/employees-add-form.js';
 export { EmployeesList } from './employees-list/employees-list.js';
 export { EmployeesListItem } from './employees-list-item/employees-list-item.js';
 export { SearchPanel } from './search-panel/search-panel.js';
+export { Empty } from './empty/Empty.js';

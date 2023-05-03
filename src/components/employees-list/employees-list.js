@@ -4,13 +4,9 @@ import { EmployeesListItem } from "../employees-list-item/employees-list-item";
 import './employees-list.css';
 
 class EmployeesList extends Component {
-	constructor(props){
-		super(props)
-	}
-
 
 	render(){
-		let { employeers, onDeleteOne, onToggleIncrease } = this.props
+		let { employeers, onDeleteOne, onToggleStatus } = this.props
 		console.log(employeers);
 		return (
 			<ul className="app-list list-group">
@@ -23,7 +19,7 @@ class EmployeesList extends Component {
 												salary={`${salary}$`}
 												increase={increase}
 												rise={rise}  
-												onToggleIncrease={(incr) => { onToggleIncrease(incr, id) }}
+												onToggleStatus={(prop, status) => { onToggleStatus(prop, status, id) }}
 												onDeleteTwo={() => onDeleteOne(id)}/>
 						})
 					}

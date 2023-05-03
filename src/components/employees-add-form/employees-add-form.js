@@ -20,7 +20,9 @@ class EmployeesAddForm extends Component {
 		if(this.state.name && this.state.salary){
 			let obj = {
 				name: this.state.name,
-				salary: this.state.salary
+				salary: this.state.salary,
+				increase: false,
+				rise: false,
 			}
 			this.props.addEmployee(obj)
 		}

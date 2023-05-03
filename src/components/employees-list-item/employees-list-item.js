@@ -2,31 +2,16 @@ import { Component } from 'react';
 import './employees-list-item.css';
 
 class EmployeesListItem extends Component {
-	state = {
-		rise: false,
-		increase: false
-	}
-	onRise = () =>{
-		this.setState( ({ rise }) => { 
-			return { rise : !rise } 
-		} )
+	onRise = (e) => {
+		this.props.onToggleStatus("rise", !this.props.rise)
+		console.dir(e.target)
 	}
 
-	onIncrease = () => {
-		this.setState(() => {
-			return {
-				increase: !this.props.increase
-			}
-		})
-		this.props.onToggleIncrease(!this.state.increase)
-		console.log('click')
+	onIncrease = (e) => {
+		this.props.onToggleStatus("increase", !this.props.increase)
+		console.dir(e.target)
 	}
 	
-	componentDidMount(){
-		this.setState({increase: this.props.increase})
-		this.setState({rise: this.props.rise})
-	}
-
 	render(){
 		let { name , salary, onDeleteTwo, increase, rise } = this.props;
 		let clazz = "list-group-item d-flex justify-content-between"
@@ -42,7 +27,7 @@ class EmployeesListItem extends Component {
 		return (
 			<li  className={clazz}>
 				<span className="list-group-item-label" onClick={this.onRise}>{name}</span>
-				<input type="text" className="list-group-item-input" defaultValue={salary}/>
+				<input type="text" className="list-group-item-input" value={salary}/>
 				<div className='d-flex justify-content-center align-items-center '>
 					<button type="button"
 							className="btn-cookie btn-sm"
